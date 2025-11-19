@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "categories": "الفئات",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "cart": "السلة",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "dashboard": "لوحة التحكم",
+    "search": "بحث",
+    "shop": "تسوق",
+    "allProducts": "كل المنتجات",
+    "browseAll": "تصفح جميع المنتجات",
+    "shopByCategory": "تسوق حسب الفئة"
+  },
+  "hero": {
+    "title": "مرحباً بك في متجر HQ",
+    "subtitle": "أفضل المنتجات بأسعار تنافسية",
+    "cta": "تسوق الآن"
+  },
+  "categories": {
+    "title": "تسوق حسب الفئة",
+    "viewAll": "عرض الكل"
+  },
+  "products": {
+    "featured": "منتجات مميزة",
+    "addToCart": "أضف للسلة",
+    "outOfStock": "نفد المخزون",
+    "price": "ر.س",
+    "allProducts": "كل المنتجات",
+    "browse": "تصفح مجموعتنا الكاملة من المنتجات",
+    "noProducts": "لا توجد منتجات",
+    "newest": "الأحدث",
+    "priceLow": "السعر: من الأقل للأعلى",
+    "priceHigh": "السعر: من الأعلى للأقل",
+    "name": "الاسم",
+    "backToProducts": "العودة للمنتجات"
+  },
+  "categories": {
+    "title": "تسوق حسب الفئة",
+    "viewAll": "عرض الكل",
+    "all": "كل الفئات",
+    "subtitle": "استكشف مجموعتنا المتنوعة من الفئات",
+    "noCategories": "لا توجد فئات متاحة"
+  },
+  "product": {
+    "notFound": "المنتج غير موجود",
+    "size": "المقاس",
+    "selectSize": "الرجاء اختيار المقاس",
+    "availability": "التوفر",
+    "inStock": "متوفر",
+    "similarProducts": "منتجات مشابهة"
+  },
+  "search": {
+    "placeholder": "ابحث عن المنتجات...",
+    "noResults": "لا توجد نتائج",
+    "startTyping": "ابدأ بالكتابة للبحث عن المنتجات"
+  },
+  "cart": {
+    "title": "سلة المشتريات",
+    "empty": "السلة فارغة",
+    "continue": "متابعة التسوق",
+    "total": "المجموع",
+    "checkout": "إتمام الشراء",
+    "remove": "إزالة",
+    "added": "تمت الإضافة للسلة"
+  },
+  "testimonials": {
+    "title": "آراء العملاء",
+    "subtitle": "ماذا يقول عملاؤنا عنا"
+  },
+  "newsletter": {
+    "title": "اشترك في النشرة البريدية",
+    "subtitle": "احصل على آخر العروض والتحديثات",
+    "placeholder": "البريد الإلكتروني",
+    "subscribe": "اشترك"
+  },
+  "footer": {
+    "about": "عن HQ",
+    "quickLinks": "روابط سريعة",
+    "contact": "تواصل معنا",
+    "follow": "تابعنا",
+    "rights": "جميع الحقوق محفوظة"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "fullName": "الاسم الكامل",
+    "alreadyHaveAccount": "لديك حساب بالفعل؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "loginButton": "دخول",
+    "signupButton": "تسجيل",
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "signupSuccess": "تم إنشاء الحساب بنجاح",
+    "error": "حدث خطأ، يرجى المحاولة مرة أخرى"
+  },
+  "cart": {
+    "title": "سلة المشتريات",
+    "empty": "السلة فارغة",
+    "continue": "متابعة التسوق",
+    "total": "المجموع",
+    "checkout": "إتمام الشراء",
+    "remove": "إزالة"
+  },
+  "about": {
+    "title": "من نحن",
+    "subtitle": "تعرف على متجر HQ",
+    "description": "متجر HQ هو وجهتك الأولى للحصول على أفضل المنتجات بأسعار تنافسية. نحن نسعى لتقديم تجربة تسوق مميزة لعملائنا."
+  },
+  "admin": {
+    "dashboard": "لوحة التحكم",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "orders": "الطلبات",
+    "users": "المستخدمين",
+    "settings": "الإعدادات",
+    "addProduct": "إضافة منتج",
+    "addCategory": "إضافة فئة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ",
+    "cancel": "إلغاء"
+  }
+}

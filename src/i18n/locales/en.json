@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact",
+    "cart": "Cart",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "search": "Search",
+    "shop": "Shop",
+    "allProducts": "All Products",
+    "browseAll": "Browse all products",
+    "shopByCategory": "Shop by category"
+  },
+  "hero": {
+    "title": "Welcome to HQ Store",
+    "subtitle": "Best products at competitive prices",
+    "cta": "Shop Now"
+  },
+  "categories": {
+    "title": "Shop by Category",
+    "viewAll": "View All"
+  },
+  "products": {
+    "featured": "Featured Products",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "price": "SAR",
+    "allProducts": "All Products",
+    "browse": "Browse our complete collection",
+    "noProducts": "No products found",
+    "newest": "Newest",
+    "priceLow": "Price: Low to High",
+    "priceHigh": "Price: High to Low",
+    "name": "Name",
+    "backToProducts": "Back to Products"
+  },
+  "categories": {
+    "title": "Shop by Category",
+    "viewAll": "View All",
+    "all": "All Categories",
+    "subtitle": "Explore our diverse range of categories",
+    "noCategories": "No categories available"
+  },
+  "product": {
+    "notFound": "Product not found",
+    "size": "Size",
+    "selectSize": "Please select a size",
+    "availability": "Availability",
+    "inStock": "In Stock",
+    "similarProducts": "Similar Products"
+  },
+  "search": {
+    "placeholder": "Search for products...",
+    "noResults": "No results found",
+    "startTyping": "Start typing to search for products"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Cart is empty",
+    "continue": "Continue Shopping",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "added": "Added to cart"
+  },
+  "testimonials": {
+    "title": "Customer Reviews",
+    "subtitle": "What our customers say about us"
+  },
+  "newsletter": {
+    "title": "Subscribe to Newsletter",
+    "subtitle": "Get latest offers and updates",
+    "placeholder": "Email",
+    "subscribe": "Subscribe"
+  },
+  "footer": {
+    "about": "About HQ",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Us",
+    "follow": "Follow Us",
+    "rights": "All Rights Reserved"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full Name",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "loginButton": "Login",
+    "signupButton": "Sign Up",
+    "loginSuccess": "Logged in successfully",
+    "signupSuccess": "Account created successfully",
+    "error": "An error occurred, please try again"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Cart is empty",
+    "continue": "Continue Shopping",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Get to know HQ Store",
+    "description": "HQ Store is your first destination for the best products at competitive prices. We strive to provide an exceptional shopping experience for our customers."
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "categories": "Categories",
+    "orders": "Orders",
+    "users": "Users",
+    "settings": "Settings",
+    "addProduct": "Add Product",
+    "addCategory": "Add Category",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}
