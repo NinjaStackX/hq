@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/store3";
-import { removeFromCart, updateQuantity } from "@/store3/slices/cartSlice";
+
+import { removeFromCart, updateQuantity } from "@/store/slices/cartSlice";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -10,9 +10,11 @@ import { ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
-  const { items, total } = useSelector((state: RootState) => state.cart);
+  const { items, total } = useSelector((state: any) => state.cart);
+  const n = items; //.map((item: any) => item.name_en);
+  //console.log(n);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -51,10 +53,10 @@ const Cart = () => {
                       )}
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold mb-2">
-                          {item.name}
+                          {i18n.language === "ar" ? item.name_ar : item.name_en}
                         </h3>
                         <p className="text-primary font-bold mb-4">
-                          {item.price} {t("products.price")}
+                          {item.price_syp} {t("products.price")}
                         </p>
                         <div className="flex items-center gap-4">
                           <div className="flex items-center gap-2 border rounded-lg">

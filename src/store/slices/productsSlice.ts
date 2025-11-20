@@ -48,13 +48,13 @@ const productsSlice = createSlice({
         state.error = action.payload ?? action.error.message ?? "Unknown error";
       })
       .addCase(fetchCreateProduct.fulfilled, (state, action) => {
-        console.log(action.payload);
+        //console.log(action.payload);
 
         state.items.push(action.payload);
       })
       .addCase(fetchUpdateProduct.fulfilled, (state, action) => {
         const index = state.items.findIndex((p) => p.id === action.payload.id);
-        console.log("index:", index);
+        //console.log("index:", index);
 
         if (index !== -1) {
           state.items[index] = action.payload;

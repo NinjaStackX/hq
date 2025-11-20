@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { addToCart } from "@/store/slices/cartSlice";
 
 const FeaturedProducts = () => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart.items);
   const { items, loading, error } = useSelector(
     (state: RootState) => state.products
   );
@@ -58,6 +61,9 @@ const FeaturedProducts = () => {
                       <Button
                         size="sm"
                         className="bg-white text-primary hover:bg-white/90 shadow-lg"
+                        onClick={() => {
+                          dispatch(addToCart(product));
+                        }}
                       >
                         <ShoppingCart className="w-4 h-4 ml-2" />
                         أضف للسلة

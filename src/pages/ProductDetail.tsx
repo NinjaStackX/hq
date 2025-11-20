@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { mockProducts } from "@/lib/mockData";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Heart, Share2, ChevronLeft, Ruler } from "lucide-react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/store3/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "@/store/slices/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 
 const ProductDetail = () => {
@@ -20,21 +20,22 @@ const ProductDetail = () => {
   const { toast } = useToast();
   const [product, setProduct] = useState<any>(null);
   const [similarProducts, setSimilarProducts] = useState<any[]>([]);
-  const [loading] = useState(false);
+
   const [selectedSize, setSelectedSize] = useState("");
 
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+  const { items, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
-    const prod = mockProducts.find((p) => p.id === id);
+    const prod = items.find((p) => p.id == id);
     if (prod) {
       setProduct(prod);
-      const similar = mockProducts
-        .filter((p) => p.category_id === prod.category_id && p.id !== id)
+      const similar = items
+        .filter((p) => p.category_id == prod.category_id && p.id != id)
         .slice(0, 4);
       setSimilarProducts(similar);
     }
-  }, [id]);
+  }, [items, id]);
 
   const handleAddToCart = () => {
     if (
@@ -110,9 +111,7 @@ const ProductDetail = () => {
                 {product.image_url ? (
                   <img
                     src={product.image_url}
-                    alt={
-                      i18n.language === "ar" ? product.name_ar : product.name_en
-                    }
+                    alt={product[`name_${i18n.language}`]}
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -132,7 +131,7 @@ const ProductDetail = () => {
                     : product.categories?.name_en}
                 </Badge>
                 <h1 className="text-4xl font-bold mb-2">
-                  {i18n.language === "ar" ? product.name_ar : product.name_en}
+                  {product[`name_${i18n.language}`]}
                 </h1>
                 <p className="text-3xl font-bold text-primary">
                   {product.price} {t("products.price")}

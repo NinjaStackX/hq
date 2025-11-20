@@ -15,8 +15,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ShoppingCart, Search } from "lucide-react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "@/store3/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "@/store/slices/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 
 const Products = () => {
@@ -24,8 +24,8 @@ const Products = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const { toast } = useToast();
-  const [products] = useState(mockProducts);
-  const [categories] = useState(mockCategories);
+  const products = useSelector((state: any) => state.products);
+  const categories = useSelector((state: any) => state.categories);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -36,14 +36,15 @@ const Products = () => {
     if (category) setSelectedCategory(category);
   }, [searchParams]);
 
-  const filteredProducts = products
+  const filteredProducts = products.items
     .filter((p) => {
       const matchesSearch =
         searchTerm === "" ||
         p.name_ar.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.name_en.toLowerCase().includes(searchTerm.toLowerCase());
+      //console.log(selectedCategory, p.category_id);
       const matchesCategory =
-        selectedCategory === "all" || p.category_id === selectedCategory;
+        selectedCategory === "all" || p.category_id == selectedCategory;
       return matchesSearch && matchesCategory;
     })
     .sort((a, b) => {
@@ -58,11 +59,8 @@ const Products = () => {
   const handleAddToCart = (product: any) => {
     dispatch(
       addToCart({
-        id: product.id,
-        name: product.name_ar,
-        price: product.price_syp,
         quantity: 1,
-        image: product.image_url,
+        ...product,
       })
     );
     toast({
@@ -99,7 +97,9 @@ const Products = () => {
                 <Input
                   placeholder={t("nav.search")}
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                  }}
                   className="pl-10"
                 />
               </div>
@@ -113,9 +113,9 @@ const Products = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">{t("categories.all")}</SelectItem>
-                {categories.map((cat) => (
+                {categories.items.map((cat) => (
                   <SelectItem key={cat.id} value={cat.id}>
-                    {i18n.language === "ar" ? cat.name_ar : cat.name_en}
+                    {cat[`name_${i18n.language}`]}
                   </SelectItem>
                 ))}
               </SelectContent>

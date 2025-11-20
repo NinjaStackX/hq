@@ -2,43 +2,43 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store3";
-// import { Button } from "@/components/ui/button";
-// import {
-//   Menu,
-//   X,
-//   ShoppingCart,
-//   Search,
-//   Globe,
-//   Package,
-//   Grid3x3,
-// } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Menu,
+  X,
+  ShoppingCart,
+  Search,
+  Globe,
+  Package,
+  Grid3x3,
+} from "lucide-react";
 import { Link } from "react-router-dom";
-// import {
-//   NavigationMenu,
-//   NavigationMenuContent,
-//   NavigationMenuItem,
-//   NavigationMenuList,
-//   NavigationMenuTrigger,
-// } from "@/components/ui/navigation-menu";
-// import SearchDialog from "@/components/SearchDialog";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import SearchDialog from "@/components/SearchDialog";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [isSearchOpen, setIsSearchOpen] = useState(false);
-  // const { items } = useSelector((state: RootState) => state.cart);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { items } = useSelector((state: RootState) => state.cart);
 
-  // const toggleLanguage = () => {
-  //   const newLang = i18n.language === "ar" ? "en" : "ar";
-  //   i18n.changeLanguage(newLang);
-  //   document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
-  // };
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "ar" ? "en" : "ar";
+    i18n.changeLanguage(newLang);
+    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
+  };
 
-  // const navLinks = [
-  //   { name: t("nav.home"), href: "/" },
-  //   { name: t("nav.about"), href: "/about" },
-  //   { name: t("nav.contact"), href: "/#contact" },
-  // ];
+  const navLinks = [
+    { name: t("nav.home"), href: "/" },
+    { name: t("nav.about"), href: "/about" },
+    { name: t("nav.contact"), href: "/#contact" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 glass-effect border-b border-white/20">
@@ -55,7 +55,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          {/* <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -121,11 +121,11 @@ const Navbar = () => {
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-          </div> */}
+          </div>
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            {/* <Button
+            <Button
               variant="ghost"
               size="icon"
               onClick={toggleLanguage}
@@ -167,10 +167,10 @@ const Navbar = () => {
               >
                 {t("nav.dashboard")}
               </Button>
-            </Link> */}
+            </Link>
 
             {/* Mobile Menu Button */}
-            {/* <Button
+            <Button
               variant="ghost"
               size="icon"
               className="lg:hidden rounded-full"
@@ -181,12 +181,12 @@ const Navbar = () => {
               ) : (
                 <Menu className="w-6 h-6" />
               )}
-            </Button> */}
+            </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {/* {isOpen && (
+        {isOpen && (
           <div className="lg:hidden py-4 animate-fade-in">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
@@ -202,10 +202,9 @@ const Navbar = () => {
             </div>
           </div>
         )}
-        */}
       </div>
 
-      {/* <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} />  */}
+      <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </nav>
   );
 };

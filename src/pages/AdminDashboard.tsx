@@ -35,7 +35,7 @@ import {
 } from "@/components/ui/select";
 
 import { useDispatch, useSelector } from "react-redux";
-import FeaturedProducts from "@/components/FeaturedProducts";
+
 import {
   fetchCreateProduct,
   fetchDelProduct,
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
 
   const handleProductSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(editingProduct);
+    //console.log(editingProduct);
     if (editingProduct) {
       dispatch(fetchUpdateProduct({ id: editingProduct.id, ...productForm }));
       setEditingProduct("");
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
 
   const handleCategorySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(editingCategory);
+    //console.log(editingCategory);
     if (editingCategory) {
       dispatch(
         fetchUpdateCategory({ id: editingCategory.id, ...categoryForm })

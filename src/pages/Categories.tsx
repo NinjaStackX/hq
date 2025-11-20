@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { mockCategories } from "@/lib/mockData";
@@ -6,12 +6,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Package } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const Categories = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const [categories] = useState(mockCategories);
-  const [loading] = useState(false);
+  const { items, loading } = useSelector((state: any) => state.categories);
 
   if (loading) {
     return (
@@ -35,7 +35,7 @@ const Categories = () => {
             </p>
           </div>
 
-          {categories.length === 0 ? (
+          {items.length === 0 ? (
             <div className="text-center py-16">
               <Package className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
               <p className="text-muted-foreground text-lg">
@@ -44,7 +44,7 @@ const Categories = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {categories.map((category) => (
+              {items.map((category) => (
                 <Card
                   key={category.id}
                   className="group hover-lift cursor-pointer overflow-hidden border-2 hover:border-primary/50 transition-all duration-300"
