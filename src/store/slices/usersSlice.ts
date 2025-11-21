@@ -1,58 +1,60 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
-  fetchCreateProduct,
-  fetchDelProduct,
-  fetchReadProducts,
-  fetchUpdateProduct,
-} from "../thunks/productsThunk";
+  fetchCreateUser,
+  fetchDelUser,
+  fetchReadUsers,
+  fetchUpdateUser,
+} from "../thunks/usersThunck";
 
-export interface Product {
+export interface User {
   id: string;
   name: string;
   is_featured?: boolean;
 }
 
-interface ProductsState {
-  items: Product[];
+interface UsersState {
+  items: User[];
   loading: boolean;
   error: string | null;
 }
 
-const initialState: ProductsState = {
+const initialState: UsersState = {
   items: [],
   loading: false,
   error: null,
 };
 
-const productsSlice = createSlice({
-  name: "products",
+const usersSlice = createSlice({
+  name: "users",
   initialState,
   reducers: {
-    setProducts: (state, action: PayloadAction<Product[]>) => {
+    setUsers: (state, action: PayloadAction<User[]>) => {
       state.items = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchReadProducts.pending, (state) => {
+      .addCase(fetchReadUsers.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchReadProducts.fulfilled, (state, action) => {
+      .addCase(fetchReadUsers.fulfilled, (state, action) => {
+        console.log(action.payload);
+
         state.loading = false;
         state.items = action.payload;
         state.error = null;
       })
-      .addCase(fetchReadProducts.rejected, (state, action) => {
+      .addCase(fetchReadUsers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload ?? action.error.message ?? "Unknown error";
       })
-      .addCase(fetchCreateProduct.fulfilled, (state, action) => {
+      .addCase(fetchCreateUser.fulfilled, (state, action) => {
         console.log(action.payload);
 
         state.items.push(action.payload);
       })
-      .addCase(fetchUpdateProduct.fulfilled, (state, action) => {
+      .addCase(fetchUpdateUser.fulfilled, (state, action) => {
         const index = state.items.findIndex((p) => p.id === action.payload.id);
         console.log("index:", index);
 
@@ -61,11 +63,11 @@ const productsSlice = createSlice({
         }
       })
 
-      .addCase(fetchDelProduct.fulfilled, (state, action) => {
+      .addCase(fetchDelUser.fulfilled, (state, action) => {
         state.items = state.items.filter((p) => p.id !== action.payload);
       });
   },
 });
 
-export const { setProducts } = productsSlice.actions;
-export default productsSlice.reducer;
+export const { setUsers } = usersSlice.actions;
+export default usersSlice.reducer;

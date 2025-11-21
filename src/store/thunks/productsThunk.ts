@@ -54,7 +54,7 @@ export const fetchUpdateProduct = createAsyncThunk<
   { rejectValue: string }
 >("products/updateProduct", async (productUpdated, thunkAPI) => {
   try {
-    //console.log("thunki===========", productUpdated);
+    console.log("thunki===========", productUpdated);
 
     const data = await update("products", productUpdated);
     if (!data) throw new Error("No product updated");

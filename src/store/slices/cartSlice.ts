@@ -28,13 +28,13 @@ const saveCartToStorage = (items: CartItem[]) => {
 };
 
 const calculateTotal = (items: CartItem[]): number => {
-  //console.log("items==>>>", items);
+  console.log("items==>>>", items);
 
   const tot = items.reduce(
     (sum, item) => sum + item.price_syp * item.quantity,
     0
   );
-  //console.log(tot);
+  console.log(tot);
 
   return tot;
 };
@@ -57,7 +57,7 @@ const cartSlice = createSlice({
       if (existingItem) existingItem.quantity += 1; // action.payload.quantity;
       else state.items.push({ quantity: 1, ...action.payload });
       const x = JSON.stringify(state.items);
-      //console.log(JSON.parse(x));
+      console.log(JSON.parse(x));
 
       state.total = calculateTotal(state.items);
       saveCartToStorage(state.items);

@@ -1,4 +1,12 @@
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 const Footer = () => {
   const footerLinks = {
@@ -11,7 +19,7 @@ const Footer = () => {
     shop: [
       { name: "ملابس", href: "#clothing" },
       { name: "إلكترونيات", href: "#electronics" },
-      { name: "عناية شخصية", href: "#personal-care" },
+      { name: "عناية شخصية", href: "#useral-care" },
       { name: "عروض خاصة", href: "#deals" },
     ],
     support: [
@@ -42,7 +50,8 @@ const Footer = () => {
               <span className="text-2xl font-bold gradient-text">متجر HQ</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              متجرك الإلكتروني الموثوق لأفضل المنتجات بأسعار منافسة وجودة عالية. نسعى دائماً لتقديم تجربة تسوق مميزة لعملائنا الكرام.
+              متجرك الإلكتروني الموثوق لأفضل المنتجات بأسعار منافسة وجودة عالية.
+              نسعى دائماً لتقديم تجربة تسوق مميزة لعملائنا الكرام.
             </p>
 
             {/* Contact Info */}

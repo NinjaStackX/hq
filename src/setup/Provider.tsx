@@ -1,5 +1,6 @@
 import { fetchReadCategories } from "@/store/thunks/categoriesThunk";
 import { fetchReadProducts } from "@/store/thunks/productsThunk";
+import { fetchReadUsers } from "@/store/thunks/usersThunck";
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 
@@ -14,8 +15,10 @@ const Provider = () => {
 
     dispatch(fetchReadProducts());
     dispatch(fetchReadCategories());
+    dispatch(fetchReadUsers());
     toast.success("Items fetched successfully");
   }, [dispatch]);
+
   return <></>;
 };
 

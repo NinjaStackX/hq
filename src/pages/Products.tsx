@@ -42,7 +42,7 @@ const Products = () => {
         searchTerm === "" ||
         p.name_ar.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.name_en.toLowerCase().includes(searchTerm.toLowerCase());
-      //console.log(selectedCategory, p.category_id);
+      console.log(selectedCategory, p.category_id);
       const matchesCategory =
         selectedCategory === "all" || p.category_id == selectedCategory;
       return matchesSearch && matchesCategory;
