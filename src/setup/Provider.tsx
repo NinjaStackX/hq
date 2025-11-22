@@ -1,3 +1,4 @@
+import { create, read } from "@/api/crud";
 import { supabase } from "@/integrations/supabase/client";
 import { fetchReadCategories } from "@/store/thunks/categoriesThunk";
 import { fetchReadProducts } from "@/store/thunks/productsThunk";

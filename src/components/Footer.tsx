@@ -68,6 +68,14 @@ const Footer = () => {
                 <MapPin className="w-5 h-5" />
                 <span>المملكة العربية السعودية</span>
               </div>
+              <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <MapPin className="w-5 h-5" />
+                <span> سوريا</span>
+              </div>
+              <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <MapPin className="w-5 h-5" />
+                <span> تركيا</span>
+              </div>
             </div>
           </div>
 

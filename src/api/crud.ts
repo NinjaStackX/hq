@@ -7,8 +7,8 @@ export async function create(item: string, produ) {
   return data?.[0]; // single Product
 }
 
-export async function read(item: string) {
-  const { data, error } = await supabase.from(item).select();
+export async function read(item: string, q = null) {
+  const { data, error } = await supabase.from(item).select(q);
   if (error) throw error;
   return data ?? []; // Product[]
 }
