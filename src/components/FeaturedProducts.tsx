@@ -4,9 +4,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { addToCart } from "@/store/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state: RootState) => state.cart.items);
   const { items, loading, error } = useSelector(
     (state: RootState) => state.products
@@ -35,6 +37,9 @@ const FeaturedProducts = () => {
           {items &&
             featured.map((product, index) => (
               <div
+                onClick={() => {
+                  navigate(`/product/${product.id}`);
+                }}
                 key={product.id}
                 className="group animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}

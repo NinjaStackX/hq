@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { mockProducts } from '@/lib/mockData';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Search, ShoppingCart } from 'lucide-react';
-import { ScrollArea } from '@/components/ui/scroll-area';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Search, ShoppingCart } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useSelector } from "react-redux";
 
 interface SearchDialogProps {
   open: boolean;
@@ -18,14 +18,16 @@ interface SearchDialogProps {
 }
 
 const SearchDialog = ({ open, onOpenChange }: SearchDialogProps) => {
+  const { items, error } = useSelector((state) => state.products);
+
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<any[]>([]);
 
   useEffect(() => {
     if (searchTerm.trim()) {
-      const filtered = mockProducts.filter(
+      const filtered = items.filter(
         (p) =>
           p.name_ar.toLowerCase().includes(searchTerm.toLowerCase()) ||
           p.name_en.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -41,20 +43,20 @@ const SearchDialog = ({ open, onOpenChange }: SearchDialogProps) => {
   const handleProductClick = (productId: string) => {
     navigate(`/product/${productId}`);
     onOpenChange(false);
-    setSearchTerm('');
+    setSearchTerm("");
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[80vh]">
         <DialogHeader>
-          <DialogTitle>{t('nav.search')}</DialogTitle>
+          <DialogTitle>{t("nav.search")}</DialogTitle>
         </DialogHeader>
         <div className="space-y-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
-              placeholder={t('search.placeholder')}
+              placeholder={t("search.placeholder")}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -75,7 +77,11 @@ const SearchDialog = ({ open, onOpenChange }: SearchDialogProps) => {
                       {product.image_url ? (
                         <img
                           src={product.image_url}
-                          alt={i18n.language === 'ar' ? product.name_ar : product.name_en}
+                          alt={
+                            i18n.language === "ar"
+                              ? product.name_ar
+                              : product.name_en
+                          }
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -86,13 +92,17 @@ const SearchDialog = ({ open, onOpenChange }: SearchDialogProps) => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h4 className="font-medium truncate">
-                        {i18n.language === 'ar' ? product.name_ar : product.name_en}
+                        {i18n.language === "ar"
+                          ? product.name_ar
+                          : product.name_en}
                       </h4>
                       <p className="text-sm text-muted-foreground line-clamp-1">
-                        {i18n.language === 'ar' ? product.description_ar : product.description_en}
+                        {i18n.language === "ar"
+                          ? product.description_ar
+                          : product.description_en}
                       </p>
                       <p className="text-sm font-semibold text-primary mt-1">
-                        {product.price} {t('products.price')}
+                        {product.price} {t("products.price")}
                       </p>
                     </div>
                   </div>
@@ -100,11 +110,11 @@ const SearchDialog = ({ open, onOpenChange }: SearchDialogProps) => {
               </div>
             ) : searchTerm ? (
               <div className="text-center py-8 text-muted-foreground">
-                {t('search.noResults')}
+                {t("search.noResults")}
               </div>
             ) : (
               <div className="text-center py-8 text-muted-foreground">
-                {t('search.startTyping')}
+                {t("search.startTyping")}
               </div>
             )}
           </ScrollArea>

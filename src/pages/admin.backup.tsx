@@ -714,179 +714,12 @@ const AdminDashboard = () => {
             <TabsContent value="orders">
               <Card className="backdrop-blur-sm bg-background/50">
                 <CardHeader>
-                  <div className="flex justify-between items-center">
-                    <CardTitle>{t("admin.orders")}</CardTitle>
-                    <Dialog
-                      open={isCategoryDialogOpen}
-                      onOpenChange={(open) => {
-                        setIsCategoryDialogOpen(open);
-                        if (!open) {
-                          setEditingCategory(null);
-                          resetCategoryForm();
-                        }
-                      }}
-                    >
-                      <DialogTrigger asChild>
-                        <Button className="bg-gradient-to-r from-primary to-secondary">
-                          <Plus className="w-4 h-4 mr-2" />
-                          {t("admin.addCategory")}
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>
-                            {editingCategory
-                              ? "تعديل الفئة"
-                              : t("admin.addCategory")}
-                          </DialogTitle>
-                        </DialogHeader>
-                        <form
-                          onSubmit={handleCategorySubmit}
-                          className="space-y-4"
-                        >
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <Label>الاسم بالعربية *</Label>
-                              <Input
-                                required
-                                value={categoryForm.name_ar}
-                                onChange={(e) =>
-                                  setCategoryForm({
-                                    ...categoryForm,
-                                    name_ar: e.target.value,
-                                  })
-                                }
-                                placeholder="اسم الفئة بالعربية"
-                              />
-                            </div>
-                            <div className="space-y-2">
-                              <Label>Name in English *</Label>
-                              <Input
-                                required
-                                value={categoryForm.name_en}
-                                onChange={(e) =>
-                                  setCategoryForm({
-                                    ...categoryForm,
-                                    name_en: e.target.value,
-                                  })
-                                }
-                                placeholder="Category name in English"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <Label>الوصف بالعربية</Label>
-                              <Textarea
-                                value={categoryForm.description_ar}
-                                onChange={(e) =>
-                                  setCategoryForm({
-                                    ...categoryForm,
-                                    description_ar: e.target.value,
-                                  })
-                                }
-                                placeholder="وصف الفئة بالعربية"
-                                rows={3}
-                              />
-                            </div>
-                            <div className="space-y-2">
-                              <Label>Description in English</Label>
-                              <Textarea
-                                value={categoryForm.description_en}
-                                onChange={(e) =>
-                                  setCategoryForm({
-                                    ...categoryForm,
-                                    description_en: e.target.value,
-                                  })
-                                }
-                                placeholder="Category description in English"
-                                rows={3}
-                              />
-                            </div>
-                          </div>
-
-                          <div className="space-y-2">
-                            <Label>رابط الصورة</Label>
-                            <Input
-                              type="url"
-                              value={categoryForm.image_url}
-                              onChange={(e) =>
-                                setCategoryForm({
-                                  ...categoryForm,
-                                  image_url: e.target.value,
-                                })
-                              }
-                              placeholder="https://example.com/image.jpg"
-                            />
-                          </div>
-
-                          <div className="flex gap-2 justify-end">
-                            <Button
-                              type="button"
-                              variant="outline"
-                              onClick={() => setIsCategoryDialogOpen(false)}
-                            >
-                              {t("admin.cancel")}
-                            </Button>
-                            <Button
-                              type="submit"
-                              className="bg-gradient-to-r from-primary to-secondary"
-                            >
-                              {t("admin.save")}
-                            </Button>
-                          </div>
-                        </form>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                  <CardTitle>{t("admin.orders")}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  {users && users.length === 0 ? (
-                    <p className="text-muted-foreground text-center py-8">
-                      لا توجد مستخدمين حالياً
-                    </p>
-                  ) : (
-                    <div className="space-y-4">
-                      {users?.items &&
-                        users?.items.map((cat) => (
-                          <div
-                            key={cat.id}
-                            className="p-4 border rounded-lg flex gap-4 hover:bg-primary/5"
-                          >
-                            {/* {cat.image_url && (
-                              <img
-                                 src={cat.image_url}
-                                alt={cat.name}
-                                className="w-16 h-16 object-cover rounded"
-                              />
-                            )} */}
-                            <div className="flex-1">
-                              <h3 className="font-medium">{cat.name}</h3>
-                              <p className="text-sm text-muted-foreground">
-                                {cat.updated_at}
-                              </p>
-                            </div>
-                            <div className="flex gap-2 items-center">
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={() => openEditCategory(cat)}
-                              >
-                                <Pencil className="w-4 h-4" />
-                              </Button>
-                              <Button
-                                variant="destructive"
-                                size="sm"
-                                onClick={() => handleDeleteCategory(cat.id)}
-                              >
-                                <Trash2 className="w-4 h-4" />
-                              </Button>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  )}
+                  <p className="text-muted-foreground text-center py-8">
+                    قائمة الطلبات ستظهر هنا
+                  </p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -895,7 +728,7 @@ const AdminDashboard = () => {
               <Card className="backdrop-blur-sm bg-background/50">
                 <CardHeader>
                   <div className="flex justify-between items-center">
-                    <CardTitle>{t("admin.users")}</CardTitle>
+                    <CardTitle>{t("admin.categories")}</CardTitle>
                     <Dialog
                       open={isCategoryDialogOpen}
                       onOpenChange={(open) => {
