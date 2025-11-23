@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { RootState } from "@/store3";
+
 import { Button } from "@/components/ui/button";
 import {
   Menu,
@@ -28,7 +28,8 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { items } = useSelector((state: RootState) => state.cart);
+  const { items } = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.users);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "ar" ? "en" : "ar";
@@ -39,8 +40,9 @@ const Navbar = () => {
   const navLinks = [
     { name: t("nav.home"), href: "/" },
     { name: t("nav.about"), href: "/about" },
-    { name: t("nav.contact"), href: "/#contact" },
+    { name: t("nav.contact"), href: "/contact" },
   ];
+  console.log(" user.currentUser==>>>>", user.currentUser);
 
   return (
     <nav className="sticky top-0 z-50 glass-effect border-b border-white/20">
@@ -185,14 +187,25 @@ const Navbar = () => {
                 <Menu className="w-6 h-6" />
               )}
             </Button>
-
-            <button
-              className="px-6 py-1 rounded bg-pink-800 text-white hover:bg-pink-900"
-              onClick={() => setOpen(true)}
-            >
-              {t("auth.login.title")}
-              <hr className="m-1" /> {t("auth.register.title")}
-            </button>
+            {/* ============== */}
+            {/* ============== */}
+            {/* ============== */}
+            {/* ============== */}
+            {user.currentUser?.length == 0 && (
+              <button
+                className="px-6 py-1 rounded bg-pink-800 text-white hover:bg-pink-900"
+                onClick={() => setOpen(true)}
+              >
+                {t("auth.login.title")}
+                <hr className="m-1" /> {t("auth.register.title")}
+              </button>
+            )}
+            {user.currentUser?.length() >= 1 && (
+              <>
+                hi
+                <button>{user.currentUser.id}</button>
+              </>
+            )}
           </div>
         </div>
 

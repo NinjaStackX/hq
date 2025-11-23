@@ -16,7 +16,7 @@ interface UsersState {
   items: User[];
   loading: boolean;
   error: string | null;
-  currentUser: User;
+  currentUser: User | null;
 }
 
 const initialState: UsersState = {
@@ -30,8 +30,9 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    setUserAuth: (state, action: PayloadAction<User[]>) => {
-      console.log("payloady", action.payload);
+    setUserAuth: (state, action: PayloadAction<User>) => {
+      console.log("------------------------------------------------");
+
       state.currentUser = action.payload;
     },
   },
@@ -48,22 +49,18 @@ const usersSlice = createSlice({
       })
       .addCase(fetchReadUsers.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload ?? action.error.message ?? "Unknown error";
+        state.error =
+          (action.payload as string) || action.error.message || "Unknown error";
       })
       .addCase(fetchCreateUser.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.items.push(action.payload);
       })
       .addCase(fetchUpdateUser.fulfilled, (state, action) => {
         const index = state.items.findIndex((p) => p.id === action.payload.id);
-        console.log("index:", index);
-
         if (index !== -1) {
           state.items[index] = action.payload;
         }
       })
-
       .addCase(fetchDelUser.fulfilled, (state, action) => {
         state.items = state.items.filter((p) => p.id !== action.payload);
       });
