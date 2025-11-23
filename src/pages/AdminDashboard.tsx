@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { mockProducts, mockCategories } from "@/lib/mockData";
 import Navbar from "@/components/Navbar";
@@ -46,11 +46,18 @@ import {
   fetchDeleteCategory,
   fetchUpdateCategory,
 } from "@/store/thunks/categoriesThunk";
+import { fetchReadUsers } from "@/store/thunks/usersThunck";
 
 const AdminDashboard = () => {
   const dispatch = useDispatch();
+  const feteched = useRef(false);
   const [products, setProducts] = useState(mockProducts);
   const { items, error } = useSelector((state) => state.products);
+  useEffect(() => {
+    if (feteched.current) return;
+    feteched.current = true;
+    dispatch(fetchReadUsers());
+  }, []);
   useEffect(() => {
     setProducts(items);
   }, [dispatch, items]);

@@ -30,9 +30,9 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    setUsers: (state, action: PayloadAction<User[]>) => {
+    setUserAuth: (state, action: PayloadAction<User[]>) => {
       console.log("payloady", action.payload);
-      state.items = action.payload;
+      state.currentUser = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -42,8 +42,6 @@ const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchReadUsers.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         state.loading = false;
         state.items = action.payload;
         state.error = null;
@@ -72,5 +70,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setUsers } = usersSlice.actions;
+export const { setUserAuth } = usersSlice.actions;
 export default usersSlice.reducer;
