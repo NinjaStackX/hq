@@ -5,45 +5,23 @@ import { fetchReadProducts } from "@/store/thunks/productsThunk";
 import { fetchReadUsers } from "@/store/thunks/usersThunck";
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-
+import Cookies from "js-cookie";
 import { toast } from "sonner";
+import { setUserAuth } from "@/store/slices/usersSlice";
 
 const Provider = () => {
   const feteched = useRef(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      const { data, error } = await supabase.from("orders").select(`
-    id,
-    status,
-    orderdetails (
-      id,
-      quantity,
-      products (
-        id,
-        name_ar
-      )
-    )
-  `);
-
-      if (error) {
-        console.error("Error fetching orders:", error);
-      } else {
-        console.log("Orders with details:", data);
-      }
-    };
-
-    fetchOrders();
-  }, []);
-
-  useEffect(() => {
     if (feteched.current) return;
     feteched.current = true;
 
+    // const userId = Cookies.get("userId") ?? "";
+    // dispatch(setUserAuth, 1);
     dispatch(fetchReadProducts());
     dispatch(fetchReadCategories());
-    dispatch(fetchReadUsers());
+
     toast.success("Items fetched successfully");
   }, [dispatch]);
 

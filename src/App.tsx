@@ -14,10 +14,9 @@ import ProductDetail from "./pages/ProductDetail";
 import Categories from "./pages/Categories";
 import AdminOrders from "./pages/AdminOrders";
 import CustomerOrders from "./pages/CustomerOrders";
-import ProductsProvider from "./setup/Provider";
-import Provider from "./setup/Provider";
 
-const queryClient = new QueryClient();
+import Provider from "./setup/Provider";
+import DialogAuth from "./components/DialogAuth";
 
 const App = () => (
   <TooltipProvider>
@@ -34,6 +33,7 @@ const App = () => (
         <Route path="/orders" element={<CustomerOrders />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/auth" element={<DialogAuth />} />
         {/*
          */}
         <Route path="/categories" element={<Categories />} />

@@ -19,10 +19,7 @@
     "subtitle": "Best products at competitive prices",
     "cta": "Shop Now"
   },
-  "categories": {
-    "title": "Shop by Category",
-    "viewAll": "View All"
-  },
+
   "products": {
     "featured": "Featured Products",
     "addToCart": "Add to Cart",
@@ -45,6 +42,8 @@
     "noCategories": "No categories available"
   },
   "product": {
+    "title": "Shop by Category",
+    "viewAll": "View All",
     "notFound": "Product not found",
     "size": "Size",
     "selectSize": "Please select a size",
@@ -57,15 +56,7 @@
     "noResults": "No results found",
     "startTyping": "Start typing to search for products"
   },
-  "cart": {
-    "title": "Shopping Cart",
-    "empty": "Cart is empty",
-    "continue": "Continue Shopping",
-    "total": "Total",
-    "checkout": "Checkout",
-    "remove": "Remove",
-    "added": "Added to cart"
-  },
+
   "testimonials": {
     "title": "Customer Reviews",
     "subtitle": "What our customers say about us"
@@ -83,21 +74,57 @@
     "follow": "Follow Us",
     "rights": "All Rights Reserved"
   },
+
   "auth": {
-    "login": "Login",
-    "signup": "Sign Up",
-    "email": "Email",
-    "password": "Password",
-    "fullName": "Full Name",
-    "alreadyHaveAccount": "Already have an account?",
-    "dontHaveAccount": "Don't have an account?",
-    "loginButton": "Login",
-    "signupButton": "Sign Up",
-    "loginSuccess": "Logged in successfully",
-    "signupSuccess": "Account created successfully",
-    "error": "An error occurred, please try again"
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Welcome back",
+      "email": "Email",
+      "username": "Username",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign in",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create account",
+      "orContinueWith": "Or continue with",
+      "success": "Signed in successfully",
+      "error": "Sign-in failed. Please check your details."
+    },
+    "register": {
+      "title": "Create account",
+      "subtitle": "Start your journey with us",
+      "name": "Full name",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "acceptTerms": "I agree to the Terms & Conditions",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "signUp": "Create account",
+      "success": "Account created successfully",
+      "error": "Account creation failed. Please try again later."
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "minLength": "Minimum length is {{count}} characters",
+      "maxLength": "Maximum length is {{count}} characters",
+      "passwordMismatch": "Passwords do not match",
+      "termsRequired": "You must accept the Terms & Conditions"
+    },
+    "common": {
+      "loading": "Loading...",
+      "continue": "Continue",
+      "cancel": "Cancel",
+      "back": "Back"
+    }
   },
   "cart": {
+    "added": "Added to cart",
     "title": "Shopping Cart",
     "empty": "Cart is empty",
     "continue": "Continue Shopping",

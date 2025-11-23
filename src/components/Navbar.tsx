@@ -21,8 +21,10 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import SearchDialog from "@/components/SearchDialog";
+import DialogAuth from "@/components/DialogAuth";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -42,6 +44,7 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 glass-effect border-b border-white/20">
+      <DialogAuth open={open} onClose={() => setOpen(false)} />
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -182,6 +185,14 @@ const Navbar = () => {
                 <Menu className="w-6 h-6" />
               )}
             </Button>
+
+            <button
+              className="px-6 py-1 rounded bg-pink-800 text-white hover:bg-pink-900"
+              onClick={() => setOpen(true)}
+            >
+              {t("auth.login.title")}
+              <hr className="m-1" /> {t("auth.register.title")}
+            </button>
           </div>
         </div>
 

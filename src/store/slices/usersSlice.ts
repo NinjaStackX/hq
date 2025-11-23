@@ -16,12 +16,14 @@ interface UsersState {
   items: User[];
   loading: boolean;
   error: string | null;
+  currentUser: User;
 }
 
 const initialState: UsersState = {
   items: [],
   loading: false,
   error: null,
+  currentUser: null,
 };
 
 const usersSlice = createSlice({
@@ -29,6 +31,7 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     setUsers: (state, action: PayloadAction<User[]>) => {
+      console.log("payloady", action.payload);
       state.items = action.payload;
     },
   },

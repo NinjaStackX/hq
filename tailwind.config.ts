@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -14,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        alexandria: ['Alexandria', 'sans-serif'],
+        alexandria: ["Alexandria", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -122,6 +127,26 @@ export default {
             boxShadow: "0 0 40px hsl(var(--primary) / 0.6)",
           },
         },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideInLTR: {
+          "0%": { transform: "translateX(40px)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        slideInRTL: {
+          "0%": { transform: "translateX(-40px)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        slideOutLTR: {
+          "0%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { transform: "translateX(40px)", opacity: "0" },
+        },
+        slideOutRTL: {
+          "0%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { transform: "translateX(-40px)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -130,6 +155,12 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        ///=================================================
+        fadeInUp: "fadeInUp 300ms ease-out forwards",
+        slideInLTR: "slideInLTR 300ms ease-out forwards",
+        slideInRTL: "slideInRTL 300ms ease-out forwards",
+        slideOutLTR: "slideOutLTR 250ms ease-in forwards",
+        slideOutRTL: "slideOutRTL 250ms ease-in forwards",
       },
     },
   },
